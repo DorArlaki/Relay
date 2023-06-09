@@ -1,4 +1,4 @@
-# Script Name
+# Relay bypasses Defender
 
 Script Name: **Relay**
 
