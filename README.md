@@ -1,4 +1,4 @@
-# Relay bypasses Defender
+# Speed Up Windows Defender Bypass and Reverse Shell
 
 Script Name: **Relay**
 
