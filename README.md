@@ -1,4 +1,4 @@
-# Speed Up Windows Defender Bypass and Reverse Shell
+# Speed Up Bypassing Antivirus and Reverse Shell
 
 Script Name: **Relay**
 
