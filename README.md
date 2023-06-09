@@ -1,14 +1,14 @@
-# Speed Up Bypassing Antivirus and Reverse Shell
-
-Script Name: **Relay**
+## 🔒 Relay: Bypassing Antivirus and Firewall Detection Script
 
 ## Description
 
 The "Relay" script is a powerful tool designed to generate an executable file that bypasses Windows Defender and establishes a secure connection using meterpreter over HTTPS. This script automates the process of creating a payload that can be used for various purposes, such as penetration testing and security assessments.
 
+✅ Bypassing Kaspersky, Windows Defender, and other security software
+
 ## Features
 
-- Bypasses Windows Defender: The generated executable is specifically crafted to evade detection by Windows Defender and other antivirus software.
+- ✅ Bypassing Kaspersky, Windows Defender, and other security software :The generated executable is specifically crafted to evade detection by Windows Defender and other antivirus software.
 - Meterpreter over HTTPS: The script establishes a connection using meterpreter, providing a versatile and robust framework for interacting with the target system.
 - Encrypted Communication: All communication between the attacker and the target system is encrypted using HTTPS, ensuring confidentiality and integrity of the data exchanged.
 - Simple Usage: The script prompts the user to enter their IP address, port, and certificate file, making it easy to customize and generate the payload.
