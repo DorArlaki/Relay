@@ -16,7 +16,7 @@ The "Relay" script is a powerful tool designed to generate an executable file th
 ## Usage
 
 1. Run the Python script: `python3 relay.py` and follow the on-screen instructions.
-2. Enter your IP address, port, and the path to the certificate file when prompted.
+2. Enter your IP address and port, when prompted.
 3. The script will generate the `beacon.bin` and an executable file named `relay.exe`.
 4. On the attacker machine, navigate to the directory containing `beacon.bin`.
 5. Start a simple HTTP server using the command: `python3 -m http.server`.
