@@ -77,7 +77,7 @@ void a(char* b, char* c, char* d) {
     printf("\\n[+] Sent %ld Bytes\\n", i);
     i = shutdown(l, SD_SEND);
     if (i == SOCKET_ERROR) {
-        printf("shutdown failed with error: %d\\n", WSAGetLastError());
+        printf("shutdown failed with error, Note: for the checksum: %d\\n", WSAGetLastError());
         closesocket(l);
         WSACleanup();
         return;
