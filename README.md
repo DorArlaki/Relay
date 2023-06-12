@@ -35,9 +35,9 @@ This script is intended for educational and ethical purposes only. The misuse of
 
 This project is licensed under the [MIT License](LICENSE).
 
-![Kali]
+## Kali
 ![2](https://github.com/DorArlaki/Relay/assets/107101354/c70f9fb0-1e21-42f9-a21f-b29e31b4141e)
 
-![Target]
+## Target
 ![1](https://github.com/DorArlaki/Relay/assets/107101354/92d340a3-dc83-4c63-9bcd-7830336bf128)
 
