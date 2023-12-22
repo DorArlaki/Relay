@@ -4,7 +4,7 @@
 
 The "Relay" script is a powerful tool designed to generate an executable file that bypasses Windows Defender and establishes a secure connection using meterpreter over HTTPS. This script automates the process of creating a payload that can be used for various purposes, such as penetration testing and security assessments.
 
-✅ Bypassing Kaspersky, Windows Defender, and other security software
+✅ Windows Defender, and other security software
 
 ## Features
 
